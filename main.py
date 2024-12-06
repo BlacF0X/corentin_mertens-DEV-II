@@ -1,4 +1,5 @@
-from fraction import *
+from fraction import Fraction
+
 fraction1 = Fraction(1,4)
 fraction2 = Fraction(0,6)
 fraction3 = Fraction(2,3)
