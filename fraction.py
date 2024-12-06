@@ -66,7 +66,6 @@ class Fraction:
         if final_num == 0:
             return f"{main_int}"
         else:
-            print(f"{main_int} {final_num}/{red_form_den}")
             return f"{main_int} {final_num}/{red_form_den}"
 
     def reduced_form(self,num = None,den = None):
@@ -87,6 +86,8 @@ class Fraction:
     # ------------------ Operators overloading ------------------
 
     def __add__(self, other):
+        if not isinstance(other, Fraction):
+            raise TypeError("other must be an instance of Fraction.")
         """Overloading of the + operator for fractions
 
          PRE : - other is another fraction
@@ -100,6 +101,8 @@ class Fraction:
 
 
     def __sub__(self, other):
+        if not isinstance(other, Fraction):
+            raise TypeError("other must be an instance of Fraction.")
         """Overloading of the - operator for fractions
 
         PRE : - other is another fraction
@@ -117,6 +120,8 @@ class Fraction:
 
 
     def __mul__(self, other):
+        if not isinstance(other, Fraction):
+            raise TypeError("other must be an instance of Fraction.")
         """Overloading of the * operator for fractions
 
         PRE : - other is another fraction
@@ -126,6 +131,8 @@ class Fraction:
 
 
     def __truediv__(self, other):
+        if not isinstance(other, Fraction):
+            raise TypeError("other must be an instance of Fraction.")
         """Overloading of the / operator for fractions
 
         PRE : - over is another fraction
@@ -135,14 +142,13 @@ class Fraction:
         return self * other_frct
 
     def __pow__(self, other):
-
         """Overloading of the ** operator for fractions
 
         PRE : - over is another fraction
         POST : return a power of a fraction as a number
         """
         if not isinstance(other, Fraction):
-            raise TypeError("The exponent must be an instance of Fraction.")
+            raise TypeError("other must be an instance of Fraction.")
 
             # Raising to a fractional power: (num/den)^(a/b)
         num = self.__num ** other.__num
@@ -152,10 +158,12 @@ class Fraction:
         if other.__den != 1:  # Only take the root if denominator of exponent isn't 1
             num = num ** (1 / other.__den)
             den = den ** (1 / other.__den)
-
-        return Fraction(int(round(num)), int(round(den)))
+        print(num,den)
+        return Fraction(num, den)
 
     def __eq__(self, other):
+        if not isinstance(other, Fraction):
+            raise TypeError("other must be an instance of Fraction.")
         """Overloading of the == operator for fractions
 
         PRE : other is another fraction
@@ -165,6 +173,7 @@ class Fraction:
         return self.numerator == other.numerator and self.denominator == other.denominator
 
     def __float__(self):
+
         """Returns the decimal value of the fraction
 
         PRE : use the fraction
@@ -212,6 +221,8 @@ class Fraction:
         return num == 1
 
     def is_adjacent_to(self, other):
+        if not isinstance(other, Fraction):
+            raise TypeError("other must be an instance of Fraction.")
         """Check if two fractions differ by a unit fraction
 
         Two fractions are adjacents if the absolute value of the difference is a unit fraction
@@ -219,13 +230,6 @@ class Fraction:
         PRE : other is another fraction
         POST : check if the absolute value of the difference is a unit fraction
         """
-        difference = self - other
-        return difference.is_unit()
+        difference = abs(float(self - other))
+        return difference % 1 == 0.0
 
-
-fraction1 = Fraction(15,8)
-fraction2 = Fraction(0,6)
-fraction3 = Fraction(84,12)
-fraction4 = Fraction(5,0)
-
-print(fraction1.is_unit())
