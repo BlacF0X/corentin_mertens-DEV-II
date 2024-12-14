@@ -1,39 +1,39 @@
-fraction1 = 1 / 8
-fraction2 = 0
-fraction3 = 4
-fraction4 = 1 2/3
-fraction5 = 2 / 3
---test_float--
+fraction1 = 1 / 8,
+fraction2 = 0,
+fraction3 = 4,
+fraction4 = 1 2/3,
+fraction5 = 2 / 3,
+--test_float--,
 "self.assertEqual(float(fraction1),0.125)",ok
---test_fraction_addition--
+--test_fraction_addition--,
 "self.assertEqual(fraction1 + fraction2,Fraction(1,8))",ok
---test_fraction_constructeur--
+--test_fraction_constructeur--,
 "self.assertEqual(fraction1.numerator,1)",ok
 "self.assertRaises(AssertionError,Fraction,2,0)",ok
 "self.assertRaises(AssertionError,Fraction,2,0)",ok
 "self.assertRaises(TypeError,Fraction,None,[1,2])",ok
---test_fraction_division--
+--test_fraction_division--,
 "self.assertEqual(fraction2 / fraction1,Fraction(0,6))",ok
---test_fraction_equal--
+--test_fraction_equal--,
 "self.assertEqual(fraction1 == Fraction(1,8),True)",ok
---test_fraction_multiplication--
+--test_fraction_multiplication--,
 "self.assertEqual(fraction3 * fraction1,Fraction(40,80))",ok
---test_fraction_power--
+--test_fraction_power--,
 "self.assertEqual(fraction1 ** Fraction(2,1),Fraction(1,64))",ok
---test_fraction_subtraction--
+--test_fraction_subtraction--,
 "self.assertEqual(fraction1 - fraction2,Fraction(1,8))",ok
---test_integer--
+--test_integer--,
 "self.assertEqual(fraction1.is_integer(),False)",ok
 "self.assertEqual(fraction3.is_integer(),True)",ok
---test_mixed_number--
+--test_mixed_number--,
 "self.assertEqual(fraction3.as_mixed_number(),""4"")",ok
 "self.assertEqual(Fraction(8,5).as_mixed_number(),""1 3/5"")",ok
---test_print--
+--test_print--,
 "self.assertEqual(str(fraction1),""1 / 8"")",ok
---test_proper--
+--test_proper--,
 "self.assertEqual(fraction1.is_proper(),True)",ok
---test_zero--
+--test_zero--,
 "self.assertEqual(Fraction(0,8).is_zero(),True)",ok
 "self.assertEqual(fraction1.is_zero(),False)",ok
---test_adjacent--
+--test_adjacent--,
 "self.assertEqual(fraction4.is_adjacent_to(fraction5),True)",ok
