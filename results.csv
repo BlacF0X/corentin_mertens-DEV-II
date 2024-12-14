@@ -3,6 +3,7 @@ fraction2 = 0,
 fraction3 = 4,
 fraction4 = 1 2/3,
 fraction5 = 2 / 3,
+TEST_ÉffECTUÉ,RÉSULTAT
 --test_float--,
 "self.assertEqual(float(fraction1),0.125)",ok
 --test_fraction_addition--,
